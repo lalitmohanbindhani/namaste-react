@@ -1,22 +1,37 @@
+import { RESTRO_API } from "../utils/constants";
+
 const ResturantCard = (props) => {
   const { resData } = props;
-  <h5>{resData.deliveryTime} Minutes</h5>;
-  const { name, cuisine, rating, costForTwo, deliveryTime, image } = resData;
+
+  const { name, cuisines, avgRating, costForTwo, sla, cloudinaryImageId } =
+    resData;
   return (
-    <div
-      className="res-card"
-      style={{
-        backgroundColor: "#f0f0f0",
-      }}
-    >
-      <img alt="rest-logo" className="rest-logo" src={image} />
-      <h4>{name}</h4>
-      <h5>{cuisine.join(", ")}</h5>
-      <h5>{rating} stars</h5>
-      <h5>{costForTwo / 100} For Two</h5>
-      <h5>{deliveryTime} Minutes</h5>
+    <div className="p-4 m-2 w-[200px] rounded-lg bg-gray-100 hover:bg-gray-200 shadow-lg">
+      <img
+        alt="rest-logo"
+        className="rounded-lg w-[170px] h-[140px]"
+        src={RESTRO_API + cloudinaryImageId}
+      />
+      <h4 className="font-bold py-3 text-md">{name}</h4>
+      <h5>{cuisines.join(", ")}</h5>
+      <h5>{avgRating} stars</h5>
+      <h5>{costForTwo}</h5>
+      <h5>{sla.deliveryTime} Minutes</h5>
     </div>
   );
+};
+
+export const withPromotedLabel = (ResturantCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute bg-black text-white m-2 p-1 rounded-lg">
+          Promoted
+        </label>
+        <ResturantCard {...props} />
+      </div>
+    );
+  };
 };
 
 export default ResturantCard;
