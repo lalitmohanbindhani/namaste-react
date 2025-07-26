@@ -5,14 +5,11 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
-  //State Variable- Supper powerful variaable
   const [listOfResturant, setListOfResturant] = useState([]);
   const [filteredResturant, setFilteredResturant] = useState([]);
   const [searchText, setSearchText] = useState("");
 
   const ResturantCardPromoted = withPromotedLabel(ResturantCard);
-
-  //whenever a state variable updated, react triggered s reconciliation process(Rerenderd the)
 
   useEffect(() => {
     fetchedData();
