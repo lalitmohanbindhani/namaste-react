@@ -17,3 +17,12 @@ import {Component} from "path"
 Normal JS utility functions
 -useState()
 -useEffect()
+
+# Redux
+
+- Install @reduxjs/toolkit and react-redux
+- Build our store
+- connect our store to our app
+- slice(cart slice)
+- dispatch(action)
+- selector

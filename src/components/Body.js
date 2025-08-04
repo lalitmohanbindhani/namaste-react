@@ -1,8 +1,9 @@
 import ResturantCard, { withPromotedLabel } from "./ResturantCard";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [listOfResturant, setListOfResturant] = useState([]);
@@ -38,6 +39,8 @@ const Body = () => {
       </h1>
     );
 
+  const { loggedInUser, setUserName } = useContext(UserContext);
+
   return listOfResturant.length === 0 ? (
     <Shimmer />
   ) : (
@@ -53,7 +56,7 @@ const Body = () => {
             }}
           />
           <button
-            className="px-4 py-1 m-4 bg-green-100 hover:bg-green-200 rounded-lg"
+            className="px-4 py-1 my-4 mx-1 bg-green-100 hover:bg-green-200 rounded-lg"
             onClick={() => {
               const fillterRes = listOfResturant.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -66,7 +69,7 @@ const Body = () => {
         </div>
         <div className="search m-4 ml-0 p-4 flex items-center">
           <button
-            className="px-4 py-1 bg-gray-100 hover:bg-gray-200 m-4 rounded-lg"
+            className="px-4 py-1 bg-gray-100 hover:bg-gray-200  rounded-lg"
             onClick={() => {
               const filteredList = listOfResturant.filter(
                 (res) => res.info.avgRating > 4.2
@@ -76,6 +79,14 @@ const Body = () => {
           >
             Top Rated Resturants
           </button>
+        </div>
+        <div className="search m-4  ml-0 p-4 flex items-center">
+          <label>UserName : </label>
+          <input
+            className="border border-solid border-gray-400 shadow-sm px-2"
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          />
         </div>
       </div>
       <div className="flex flex-wrap">
