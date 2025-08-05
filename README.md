@@ -26,3 +26,9 @@ Normal JS utility functions
 - slice(cart slice)
 - dispatch(action)
 - selector
+
+# Types of Teting(developer end)
+
+- Unit Testing - it means we test our react component in isolation. (testing one unit)
+- Integration Testing - There are multiple compoents and the componemt are talking to each other
+- end to end testing (e2e testing)

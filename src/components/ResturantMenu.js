@@ -35,8 +35,10 @@ const ResturantMenu = () => {
           <RestaurantCategory
             key={category.card.card.categoryId}
             data={category?.card?.card}
-            showItem={index === showIndex ? true : false}
-            setShowIndex={() => setShowIndex(index)}
+            showItem={index === showIndex}
+            setShowIndex={() =>
+              setShowIndex(index === showIndex ? null : index)
+            }
           />
         );
       })}
