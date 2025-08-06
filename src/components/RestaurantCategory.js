@@ -15,7 +15,7 @@ const RestaurantCategory = ({ data, showItem, setShowIndex }) => {
           <span className="font-bold text-md">
             {data.title} ({data.itemCards.length})
           </span>
-          <span className="text-black border-1 px-1">▼</span>
+          <span className="text-gray-800 px-1">▼</span>
         </div>
         {showItem && <ItemList items={data.itemCards} />}
       </div>
