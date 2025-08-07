@@ -32,3 +32,15 @@ Normal JS utility functions
 - Unit Testing - it means we test our react component in isolation. (testing one unit)
 - Integration Testing - There are multiple compoents and the componemt are talking to each other
 - end to end testing (e2e testing)
+
+- react resting framework uses JEST for testing
+
+# setting up testing in our application
+
+- installed react testing library
+- installed jest
+- installed Babel dependencies
+- configure Babel
+- configure parcel config file to disable defult babel transpilation
+- jest configuration -npx create-jest
+- install jsdom library
