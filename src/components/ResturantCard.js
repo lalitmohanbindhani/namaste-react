@@ -2,7 +2,6 @@ import { RESTRO_API } from "../utils/constants";
 
 const ResturantCard = (props) => {
   const { resData } = props;
-
   const { name, cuisines, avgRating, costForTwo, sla, cloudinaryImageId } =
     resData;
   return (

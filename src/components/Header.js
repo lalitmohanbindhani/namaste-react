@@ -10,7 +10,6 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
   const { loggedInUser } = useContext(UserContext);
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
 
   //If no dependency array => useEffect is called on every render
   //if dependency array is empty = [] => useEffect is called on initial render (only once)
